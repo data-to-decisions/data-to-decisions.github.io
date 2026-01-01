@@ -1,26 +1,5 @@
 [
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Coming soon."
-  },
-  {
-    "objectID": "blog.html#notes-technical-posts",
-    "href": "blog.html#notes-technical-posts",
-    "title": "Blog",
-    "section": "",
-    "text": "Coming soon."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Founder: Venkatraman Renganathan\nGitHub: https://github.com/venkatramanrenganathan"
-  },
-  {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Projects",
@@ -33,6 +12,20 @@
     "title": "Projects",
     "section": "",
     "text": "Distance between stochastic systems — paper + code + demos\nRisk-Aware AI for autonomous systems — ongoing directions"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Coming soon."
+  },
+  {
+    "objectID": "blog.html#notes-technical-posts",
+    "href": "blog.html#notes-technical-posts",
+    "title": "Blog",
+    "section": "",
+    "text": "Coming soon."
   },
   {
     "objectID": "index.html",
@@ -54,5 +47,12 @@
     "title": "Software",
     "section": "",
     "text": "Reproducible codebases\nToolboxes & benchmarks\nTutorials and notebooks"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Founder: Venkatraman Renganathan\nGitHub: https://github.com/venkatramanrenganathan"
   }
 ]

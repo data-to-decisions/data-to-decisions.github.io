@@ -1,0 +1,7 @@
+---
+title: "Projects"
+---
+
+## Featured Projects
+- **Distance between stochastic systems** — paper + code + demos
+- **Risk-Aware AI for autonomous systems** — ongoing directions

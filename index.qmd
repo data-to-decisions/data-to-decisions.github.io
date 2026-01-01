@@ -1,7 +1,103 @@
 ---
-title: "d2d-studio.github.io"
+title: "Data to Decisions Studio"
+subtitle: "Reliable learning and decision-making for dynamical systems"
+page-layout: full
+toc: false
 ---
 
-This is a Quarto website.
+::: {.columns .v-center}
+::: {.column width="35%"}
+![](images/d2d-logo.png){fig-alt="Data to Decisions Studio logo" width="260"}
+:::
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+::: {.column width="65%"}
+## A research studio for decision-making under uncertainty
+
+**Data to Decisions Studio** develops theory and open-source tools at the intersection of **control**, **optimisation**, **networks**, **learning**, and **AI**, with an emphasis on **risk-aware** and **trustworthy** deployment in physical and cyber-physical systems.
+
+::: {.callout-note appearance="simple"}
+**Focus:** turning uncertain data and learned models into **robust decisions** with quantifiable performance and safety.
+:::
+
+[Projects](projects.qmd){.btn .btn-primary} [Software](software.qmd){.btn .btn-outline-secondary} [Blog](blog.qmd){.btn .btn-outline-secondary} [About](about.qmd){.btn .btn-outline-secondary}
+:::
+:::
+
+---
+
+## Research pillars
+
+::: {.columns}
+::: {.column}
+### Risk-Aware AI
+- Risk-sensitive learning and control (CVaR / chance constraints / DRO)
+- Safety-critical decision-making under distribution shift
+:::
+
+::: {.column}
+### Data-Driven Dynamics
+- System identification with uncertainty quantification  
+- Distances between stochastic dynamical models  
+- Model mismatch and performance guarantees
+:::
+
+::: {.column}
+### Networks & Autonomy
+- Multi-agent coordination and decentralised optimisation  
+- Robust consensus and learning over networks  
+- Scalable algorithms for large systems
+:::
+:::
+
+---
+
+## Featured work
+
+::: {.columns}
+::: {.column width="60%"}
+### Distance between stochastic dynamical systems
+A technical framework to quantify **model discrepancy** between stochastic systems in a way that supports robustness reasoning and downstream decision-making.
+
+- Clear problem formulation and metric structure  
+- Links between frequency- and time-domain viewpoints  
+- Computational pathways and illustrative examples  
+
+:::
+
+::: {.column width="40%"}
+::: {.callout-tip appearance="simple"}
+**How to use this work**
+- Compare learned models vs. reality  
+- Evaluate sim-to-real discrepancy  
+- Support robust/risk-aware controller design
+:::
+:::
+:::
+
+---
+
+## What you’ll find here
+
+- **Projects:** deep technical pages for each research thrust, with figures and reproducible assets  
+- **Software:** install guides, benchmarks, and toolboxes (Quarto-style documentation)  
+- **Blog:** short notes, proofs, and implementation tips—written for researchers and students  
+
+---
+
+## Join & collaborate
+
+I welcome collaborations with researchers and practitioners working on:
+- trustworthy AI for control/robotics  
+- risk-aware learning and planning  
+- stochastic systems and uncertainty quantification  
+- large-scale networked optimisation  
+
+**Contact:**  
+- GitHub: <https://github.com/data-to-decisions>  
+- Founder: Venkatraman Renganathan (<https://github.com/venkatramanrenganathan>)
+
+---
+
+::: {.callout-important appearance="simple"}
+**Note:** This studio is currently PI-led and designed to grow into a broader open research ecosystem through collaborators, students, and community contributions.
+:::

@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Founder: Venkatraman Renganathan\nGitHub: https://github.com/venkatramanrenganathan"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "d2d-studio.github.io",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
     "objectID": "blog.html",
     "href": "blog.html",
     "title": "Blog",
@@ -28,6 +14,13 @@
     "text": "Coming soon."
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Founder: Venkatraman Renganathan\nGitHub: https://github.com/venkatramanrenganathan"
+  },
+  {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Projects",
@@ -40,6 +33,48 @@
     "title": "Projects",
     "section": "",
     "text": "Distance between stochastic systems — paper + code + demos\nRisk-Aware AI for autonomous systems — ongoing directions"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data to Decisions Studio",
+    "section": "",
+    "text": "Data to Decisions Studio develops theory and open-source tools at the intersection of control, optimisation, networks, learning, and AI, with an emphasis on risk-aware and trustworthy deployment in physical and cyber-physical systems.\n\n\n\n\n\n\nFocus: turning uncertain data and learned models into robust decisions with quantifiable performance and safety.\n\n\n\nProjects Software Blog About"
+  },
+  {
+    "objectID": "index.html#a-research-studio-for-decision-making-under-uncertainty",
+    "href": "index.html#a-research-studio-for-decision-making-under-uncertainty",
+    "title": "Data to Decisions Studio",
+    "section": "",
+    "text": "Data to Decisions Studio develops theory and open-source tools at the intersection of control, optimisation, networks, learning, and AI, with an emphasis on risk-aware and trustworthy deployment in physical and cyber-physical systems.\n\n\n\n\n\n\nFocus: turning uncertain data and learned models into robust decisions with quantifiable performance and safety.\n\n\n\nProjects Software Blog About"
+  },
+  {
+    "objectID": "index.html#research-pillars",
+    "href": "index.html#research-pillars",
+    "title": "Data to Decisions Studio",
+    "section": "Research pillars",
+    "text": "Research pillars\n\n\n\nRisk-Aware AI\n\nRisk-sensitive learning and control (CVaR / chance constraints / DRO)\nSafety-critical decision-making under distribution shift\n\n\n\n\nData-Driven Dynamics\n\nSystem identification with uncertainty quantification\n\nDistances between stochastic dynamical models\n\nModel mismatch and performance guarantees\n\n\n\n\nNetworks & Autonomy\n\nMulti-agent coordination and decentralised optimisation\n\nRobust consensus and learning over networks\n\nScalable algorithms for large systems"
+  },
+  {
+    "objectID": "index.html#featured-work",
+    "href": "index.html#featured-work",
+    "title": "Data to Decisions Studio",
+    "section": "Featured work",
+    "text": "Featured work\n\n\n\nDistance between stochastic dynamical systems\nA technical framework to quantify model discrepancy between stochastic systems in a way that supports robustness reasoning and downstream decision-making.\n\nClear problem formulation and metric structure\n\nLinks between frequency- and time-domain viewpoints\n\nComputational pathways and illustrative examples\n\n\n\n\n\n\n\n\n\nHow to use this work - Compare learned models vs. reality\n- Evaluate sim-to-real discrepancy\n- Support robust/risk-aware controller design"
+  },
+  {
+    "objectID": "index.html#what-youll-find-here",
+    "href": "index.html#what-youll-find-here",
+    "title": "Data to Decisions Studio",
+    "section": "What you’ll find here",
+    "text": "What you’ll find here\n\nProjects: deep technical pages for each research thrust, with figures and reproducible assets\n\nSoftware: install guides, benchmarks, and toolboxes (Quarto-style documentation)\n\nBlog: short notes, proofs, and implementation tips—written for researchers and students"
+  },
+  {
+    "objectID": "index.html#join-collaborate",
+    "href": "index.html#join-collaborate",
+    "title": "Data to Decisions Studio",
+    "section": "Join & collaborate",
+    "text": "Join & collaborate\nI welcome collaborations with researchers and practitioners working on: - trustworthy AI for control/robotics\n- risk-aware learning and planning\n- stochastic systems and uncertainty quantification\n- large-scale networked optimisation\nContact:\n- GitHub: https://github.com/data-to-decisions\n- Founder: Venkatraman Renganathan (https://github.com/venkatramanrenganathan)\n\n\n\n\n\n\n\nNote: This studio is currently PI-led and designed to grow into a broader open research ecosystem through collaborators, students, and community contributions."
   },
   {
     "objectID": "software.html",

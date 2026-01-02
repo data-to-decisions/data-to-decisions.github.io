@@ -1,6 +1,132 @@
 ---
-title: "Blog"
+title: "From Observability to Co-Observability: A Gentle Introduction"
+author: "Venkatraman Renganathan"
+date: today
+categories: [Systems Theory, Control, Multi-Agent Systems]
+format:
+  html:
+    toc: true
+    toc-depth: 2
 ---
 
-## Notes & Technical Posts
-Coming soon.
+## Why should we care?
+
+In control theory, **observability** answers a simple but powerful question:
+
+> *Can I reconstruct the internal state of a system from what I can measure?*
+
+In modern systems — networked robots, distributed manufacturing lines, cyber-physical systems — **no single agent sees everything**.  
+Each agent sees only *partial information*.
+
+This naturally raises a deeper question:
+
+> *If no single agent is observable, can a **team of agents**, using their own local observations, still make correct control decisions together?*
+
+This question leads us to **co-observability**.
+
+---
+
+## Classical observability (quick recap)
+
+Consider a linear system:
+\[
+x_{k+1} = Ax_k, \qquad y_k = Cx_k
+\]
+
+The pair \((A,C)\) is **observable** if the initial state \(x_0\) can be uniquely reconstructed from the output sequence \(\{y_k\}\).
+
+Intuitively:
+- One observer
+- One measurement stream
+- Full state recovery
+
+This idea extends beautifully to nonlinear systems, hybrid systems, and even languages in discrete-event systems (DES).
+
+---
+
+## Observability in discrete-event systems (DES)
+
+In DES, instead of states evolving continuously, we have:
+- **Events** (e.g., start, stop, failure)
+- **Event sequences (strings)**
+- **Languages** of allowable behavior
+
+Some events are **observable**, some are **not**.
+
+A **projection** map removes unobservable events:
+\[
+P:\Sigma^* \rightarrow \Sigma_o^*
+\]
+
+A language \(K\) is *observable* if:
+> whenever two event sequences look the same to the observer, the controller can still make the correct enable/disable decision.
+
+Still:
+- One plant
+- One observer
+- One decision-maker
+
+---
+
+## Why observability is not enough anymore
+
+Now imagine:
+- Multiple agents
+- Each agent has **its own sensors**
+- No agent sees the full event sequence
+
+This happens in:
+- Multi-robot systems
+- Distributed manufacturing
+- Smart grids
+- Network security monitoring
+
+Each agent has a *partial view* — but decisions must still be **globally correct**.
+
+This is where **co-observability** enters.
+
+---
+
+## What is co-observability? (intuition first)
+
+**Co-observability** answers:
+
+> *Can a team of local supervisors, each with partial observations, collectively make correct control decisions — without a central observer?*
+
+Key ideas:
+- No single agent is observable
+- Decisions are made **locally**
+- Correctness must hold **globally**
+
+If observability is:
+> “One observer can see enough”
+
+Then co-observability is:
+> “Even if no one sees enough alone, together they can still act correctly”
+
+---
+
+## A simple mental picture
+
+Imagine a robot factory:
+
+- Agent 1 sees **machine status**
+- Agent 2 sees **safety interlocks**
+- Agent 3 sees **material flow**
+
+No agent alone knows whether “start production” is safe.
+
+**Co-observability asks**:
+> Can the team, using only local observations, ensure unsafe actions are never enabled?
+
+---
+
+## A tiny MATLAB-style example (conceptual)
+
+Let’s illustrate the idea with a **very simple event system**.
+
+### Events
+```text
+a = start machine   (observable by Agent 1)
+b = safety clear    (observable by Agent 2)
+c = internal event  (unobservable)

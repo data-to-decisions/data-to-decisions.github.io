@@ -2,16 +2,58 @@
   {
     "objectID": "blog.html",
     "href": "blog.html",
-    "title": "Blog",
+    "title": "From Observability to Co-Observability: A Gentle Introduction",
     "section": "",
-    "text": "Coming soon."
+    "text": "In control theory, observability answers a simple but powerful question:\n\nCan I reconstruct the internal state of a system from what I can measure?\n\nIn modern systems — networked robots, distributed manufacturing lines, cyber-physical systems — no single agent sees everything.\nEach agent sees only partial information.\nThis naturally raises a deeper question:\n\nIf no single agent is observable, can a team of agents, using their own local observations, still make correct control decisions together?\n\nThis question leads us to co-observability."
   },
   {
-    "objectID": "blog.html#notes-technical-posts",
-    "href": "blog.html#notes-technical-posts",
-    "title": "Blog",
+    "objectID": "blog.html#why-should-we-care",
+    "href": "blog.html#why-should-we-care",
+    "title": "From Observability to Co-Observability: A Gentle Introduction",
     "section": "",
-    "text": "Coming soon."
+    "text": "In control theory, observability answers a simple but powerful question:\n\nCan I reconstruct the internal state of a system from what I can measure?\n\nIn modern systems — networked robots, distributed manufacturing lines, cyber-physical systems — no single agent sees everything.\nEach agent sees only partial information.\nThis naturally raises a deeper question:\n\nIf no single agent is observable, can a team of agents, using their own local observations, still make correct control decisions together?\n\nThis question leads us to co-observability."
+  },
+  {
+    "objectID": "blog.html#classical-observability-quick-recap",
+    "href": "blog.html#classical-observability-quick-recap",
+    "title": "From Observability to Co-Observability: A Gentle Introduction",
+    "section": "Classical observability (quick recap)",
+    "text": "Classical observability (quick recap)\nConsider a linear system: [ x_{k+1} = Ax_k, y_k = Cx_k ]\nThe pair ((A,C)) is observable if the initial state (x_0) can be uniquely reconstructed from the output sequence ({y_k}).\nIntuitively: - One observer - One measurement stream - Full state recovery\nThis idea extends beautifully to nonlinear systems, hybrid systems, and even languages in discrete-event systems (DES)."
+  },
+  {
+    "objectID": "blog.html#observability-in-discrete-event-systems-des",
+    "href": "blog.html#observability-in-discrete-event-systems-des",
+    "title": "From Observability to Co-Observability: A Gentle Introduction",
+    "section": "Observability in discrete-event systems (DES)",
+    "text": "Observability in discrete-event systems (DES)\nIn DES, instead of states evolving continuously, we have: - Events (e.g., start, stop, failure) - Event sequences (strings) - Languages of allowable behavior\nSome events are observable, some are not.\nA projection map removes unobservable events: [ P:^* _o^* ]\nA language (K) is observable if: &gt; whenever two event sequences look the same to the observer, the controller can still make the correct enable/disable decision.\nStill: - One plant - One observer - One decision-maker"
+  },
+  {
+    "objectID": "blog.html#why-observability-is-not-enough-anymore",
+    "href": "blog.html#why-observability-is-not-enough-anymore",
+    "title": "From Observability to Co-Observability: A Gentle Introduction",
+    "section": "Why observability is not enough anymore",
+    "text": "Why observability is not enough anymore\nNow imagine: - Multiple agents - Each agent has its own sensors - No agent sees the full event sequence\nThis happens in: - Multi-robot systems - Distributed manufacturing - Smart grids - Network security monitoring\nEach agent has a partial view — but decisions must still be globally correct.\nThis is where co-observability enters."
+  },
+  {
+    "objectID": "blog.html#what-is-co-observability-intuition-first",
+    "href": "blog.html#what-is-co-observability-intuition-first",
+    "title": "From Observability to Co-Observability: A Gentle Introduction",
+    "section": "What is co-observability? (intuition first)",
+    "text": "What is co-observability? (intuition first)\nCo-observability answers:\n\nCan a team of local supervisors, each with partial observations, collectively make correct control decisions — without a central observer?\n\nKey ideas: - No single agent is observable - Decisions are made locally - Correctness must hold globally\nIf observability is: &gt; “One observer can see enough”\nThen co-observability is: &gt; “Even if no one sees enough alone, together they can still act correctly”"
+  },
+  {
+    "objectID": "blog.html#a-simple-mental-picture",
+    "href": "blog.html#a-simple-mental-picture",
+    "title": "From Observability to Co-Observability: A Gentle Introduction",
+    "section": "A simple mental picture",
+    "text": "A simple mental picture\nImagine a robot factory:\n\nAgent 1 sees machine status\nAgent 2 sees safety interlocks\nAgent 3 sees material flow\n\nNo agent alone knows whether “start production” is safe.\nCo-observability asks: &gt; Can the team, using only local observations, ensure unsafe actions are never enabled?"
+  },
+  {
+    "objectID": "blog.html#a-tiny-matlab-style-example-conceptual",
+    "href": "blog.html#a-tiny-matlab-style-example-conceptual",
+    "title": "From Observability to Co-Observability: A Gentle Introduction",
+    "section": "A tiny MATLAB-style example (conceptual)",
+    "text": "A tiny MATLAB-style example (conceptual)\nLet’s illustrate the idea with a very simple event system.\n\nEvents\n```text a = start machine (observable by Agent 1) b = safety clear (observable by Agent 2) c = internal event (unobservable)"
   },
   {
     "objectID": "about.html",

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Venkatraman Renganathan">
+<meta name="dcterms.date" content="2026-01-02">
 
-<title>Blog – Data-to-Decisions Studio</title>
+<title>From Observability to Co-Observability: A Gentle Introduction – Data-to-Decisions Studio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,8 +126,14 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#notes-technical-posts" id="toc-notes-technical-posts" class="nav-link active" data-scroll-target="#notes-technical-posts">Notes &amp; Technical Posts</a></li>
+  <ul class="collapse">
+  <li><a href="#why-should-we-care" id="toc-why-should-we-care" class="nav-link active" data-scroll-target="#why-should-we-care">Why should we care?</a></li>
+  <li><a href="#classical-observability-quick-recap" id="toc-classical-observability-quick-recap" class="nav-link" data-scroll-target="#classical-observability-quick-recap">Classical observability (quick recap)</a></li>
+  <li><a href="#observability-in-discrete-event-systems-des" id="toc-observability-in-discrete-event-systems-des" class="nav-link" data-scroll-target="#observability-in-discrete-event-systems-des">Observability in discrete-event systems (DES)</a></li>
+  <li><a href="#why-observability-is-not-enough-anymore" id="toc-why-observability-is-not-enough-anymore" class="nav-link" data-scroll-target="#why-observability-is-not-enough-anymore">Why observability is not enough anymore</a></li>
+  <li><a href="#what-is-co-observability-intuition-first" id="toc-what-is-co-observability-intuition-first" class="nav-link" data-scroll-target="#what-is-co-observability-intuition-first">What is co-observability? (intuition first)</a></li>
+  <li><a href="#a-simple-mental-picture" id="toc-a-simple-mental-picture" class="nav-link" data-scroll-target="#a-simple-mental-picture">A simple mental picture</a></li>
+  <li><a href="#a-tiny-matlab-style-example-conceptual" id="toc-a-tiny-matlab-style-example-conceptual" class="nav-link" data-scroll-target="#a-tiny-matlab-style-example-conceptual">A tiny MATLAB-style example (conceptual)</a></li>
   </ul>
 </nav>
     </div>
@@ -134,14 +142,31 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
-</div>
+<h1 class="title">From Observability to Co-Observability: A Gentle Introduction</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Systems Theory</div>
+    <div class="quarto-category">Control</div>
+    <div class="quarto-category">Multi-Agent Systems</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Venkatraman Renganathan </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 2, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -151,11 +176,78 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="notes-technical-posts" class="level2">
-<h2 class="anchored" data-anchor-id="notes-technical-posts">Notes &amp; Technical Posts</h2>
-<p>Coming soon.</p>
+<section id="why-should-we-care" class="level2">
+<h2 class="anchored" data-anchor-id="why-should-we-care">Why should we care?</h2>
+<p>In control theory, <strong>observability</strong> answers a simple but powerful question:</p>
+<blockquote class="blockquote">
+<p><em>Can I reconstruct the internal state of a system from what I can measure?</em></p>
+</blockquote>
+<p>In modern systems — networked robots, distributed manufacturing lines, cyber-physical systems — <strong>no single agent sees everything</strong>.<br>
+Each agent sees only <em>partial information</em>.</p>
+<p>This naturally raises a deeper question:</p>
+<blockquote class="blockquote">
+<p><em>If no single agent is observable, can a <strong>team of agents</strong>, using their own local observations, still make correct control decisions together?</em></p>
+</blockquote>
+<p>This question leads us to <strong>co-observability</strong>.</p>
+<hr>
+</section>
+<section id="classical-observability-quick-recap" class="level2">
+<h2 class="anchored" data-anchor-id="classical-observability-quick-recap">Classical observability (quick recap)</h2>
+<p>Consider a linear system: [ x_{k+1} = Ax_k, y_k = Cx_k ]</p>
+<p>The pair ((A,C)) is <strong>observable</strong> if the initial state (x_0) can be uniquely reconstructed from the output sequence ({y_k}).</p>
+<p>Intuitively: - One observer - One measurement stream - Full state recovery</p>
+<p>This idea extends beautifully to nonlinear systems, hybrid systems, and even languages in discrete-event systems (DES).</p>
+<hr>
+</section>
+<section id="observability-in-discrete-event-systems-des" class="level2">
+<h2 class="anchored" data-anchor-id="observability-in-discrete-event-systems-des">Observability in discrete-event systems (DES)</h2>
+<p>In DES, instead of states evolving continuously, we have: - <strong>Events</strong> (e.g., start, stop, failure) - <strong>Event sequences (strings)</strong> - <strong>Languages</strong> of allowable behavior</p>
+<p>Some events are <strong>observable</strong>, some are <strong>not</strong>.</p>
+<p>A <strong>projection</strong> map removes unobservable events: [ P:^* _o^* ]</p>
+<p>A language (K) is <em>observable</em> if: &gt; whenever two event sequences look the same to the observer, the controller can still make the correct enable/disable decision.</p>
+<p>Still: - One plant - One observer - One decision-maker</p>
+<hr>
+</section>
+<section id="why-observability-is-not-enough-anymore" class="level2">
+<h2 class="anchored" data-anchor-id="why-observability-is-not-enough-anymore">Why observability is not enough anymore</h2>
+<p>Now imagine: - Multiple agents - Each agent has <strong>its own sensors</strong> - No agent sees the full event sequence</p>
+<p>This happens in: - Multi-robot systems - Distributed manufacturing - Smart grids - Network security monitoring</p>
+<p>Each agent has a <em>partial view</em> — but decisions must still be <strong>globally correct</strong>.</p>
+<p>This is where <strong>co-observability</strong> enters.</p>
+<hr>
+</section>
+<section id="what-is-co-observability-intuition-first" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-co-observability-intuition-first">What is co-observability? (intuition first)</h2>
+<p><strong>Co-observability</strong> answers:</p>
+<blockquote class="blockquote">
+<p><em>Can a team of local supervisors, each with partial observations, collectively make correct control decisions — without a central observer?</em></p>
+</blockquote>
+<p>Key ideas: - No single agent is observable - Decisions are made <strong>locally</strong> - Correctness must hold <strong>globally</strong></p>
+<p>If observability is: &gt; “One observer can see enough”</p>
+<p>Then co-observability is: &gt; “Even if no one sees enough alone, together they can still act correctly”</p>
+<hr>
+</section>
+<section id="a-simple-mental-picture" class="level2">
+<h2 class="anchored" data-anchor-id="a-simple-mental-picture">A simple mental picture</h2>
+<p>Imagine a robot factory:</p>
+<ul>
+<li>Agent 1 sees <strong>machine status</strong></li>
+<li>Agent 2 sees <strong>safety interlocks</strong></li>
+<li>Agent 3 sees <strong>material flow</strong></li>
+</ul>
+<p>No agent alone knows whether “start production” is safe.</p>
+<p><strong>Co-observability asks</strong>: &gt; Can the team, using only local observations, ensure unsafe actions are never enabled?</p>
+<hr>
+</section>
+<section id="a-tiny-matlab-style-example-conceptual" class="level2">
+<h2 class="anchored" data-anchor-id="a-tiny-matlab-style-example-conceptual">A tiny MATLAB-style example (conceptual)</h2>
+<p>Let’s illustrate the idea with a <strong>very simple event system</strong>.</p>
+<section id="events" class="level3">
+<h3 class="anchored" data-anchor-id="events">Events</h3>
+<p>```text a = start machine (observable by Agent 1) b = safety clear (observable by Agent 2) c = internal event (unobservable)</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
